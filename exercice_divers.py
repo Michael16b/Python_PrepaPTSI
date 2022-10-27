@@ -85,3 +85,28 @@ def test_palindrome() :
         print("palindrome : ERREUR")
 
 #test_palindrome()
+
+
+def divise(p,n) :
+    val = p
+    while (val < n) :
+        val = val + p
+    if (val == n) :
+        return True
+    else :
+        return False
+
+
+def test_divise() :
+    try :
+        assert(divise(2, 1) == False)
+        assert(divise(2, 2) == True)
+        assert(divise(2, 3) == False)
+        assert(divise(2, 4) == True)
+        assert(divise(2, 5) == False)
+        assert(divise(2, 6) == True)
+        print("divise : OK")
+    except :
+        print("divise : ERREUR")
+
+test_divise()
