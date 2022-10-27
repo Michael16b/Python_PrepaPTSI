@@ -70,3 +70,18 @@ def test_reverse() :
         print("reverse : ERREUR")
 
 #test_reverse()
+
+def palindrome(s):
+    return s == reverse(s)
+
+def test_palindrome() :
+    try :
+        assert(palindrome("abc") == False)
+        assert(palindrome("abcba") == True)
+        assert(palindrome("123456789") == False)
+        assert(palindrome("123454321") == True)
+        print("palindrome : OK")
+    except :
+        print("palindrome : ERREUR")
+
+#test_palindrome()
