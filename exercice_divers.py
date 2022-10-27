@@ -109,4 +109,33 @@ def test_divise() :
     except :
         print("divise : ERREUR")
 
-test_divise()
+#test_divise()
+
+
+#Calcul de somme factorielle
+
+def fact(n) :
+    if (n == 0) :
+        return 1
+    else :
+        return n * fact(n-1)
+    
+def somme2(n) :
+    somme = 0
+    for i in range(1, n + 1) :
+        somme = somme + fact(i)
+    return somme
+
+def test_sommefact() :
+    try :
+        assert(somme2(1) == 1)
+        assert(somme2(2) == 3)
+        assert(somme2(3) == 9)
+        assert(somme2(4) == 33)
+        assert(somme2(5) == 153)
+        assert(somme2(6) == 873)
+        print("somme2 : OK")
+    except :
+        print("somme2 : ERREUR")
+        
+#test_sommefact()
