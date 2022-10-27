@@ -56,3 +56,17 @@ def test_aire_triangle() :
 #test_aire_triangle()
 
 
+def reverse(s):
+    return s[::-1]
+
+
+def test_reverse() :
+    try :
+        assert(reverse("abc") == "cba")
+        assert(reverse("abcde") == "edcba")
+        assert(reverse("123456789") == "987654321")
+        print("reverse : OK")
+    except :
+        print("reverse : ERREUR")
+
+#test_reverse()
