@@ -190,5 +190,64 @@ def test_maxpente() :
         print("maxpente : ERREUR")
 
 
-test_maxpente()
-        
+#test_maxpente()
+
+def checkPQ(p,q) :
+    return (p > 0 and q > 0 and p < q)
+
+
+# Doit renvoyer le plus petit rationnel n tel que 1/n <= p/q
+def minRationnel(a,b) :
+    if (checkPQ(a,b) == False) :
+        return None
+    n = 1
+    while (1/n > a/b) :
+        n = n + 1
+    return n
+
+
+
+# A Ameliorer
+def test_minRationnel() :
+    try :
+        assert(minRationnel(1,2) == 2)
+        assert(minRationnel(1,3) == 3)
+        assert(minRationnel(10, 100) == 10)
+        assert(minRationnel(1, 100) == 100)
+        print("minRationnel : OK")
+    except :
+        print("minRationnel : ERREUR")
+
+
+test_minRationnel()
+    
+
+
+
+def fractionEgyptienne(p, q):
+    if (checkPQ(p,q) == False) :
+        return []
+    a,b = p,q
+    liste = []
+    while b % a != 0:
+        m = b // a + 1
+        liste.append(m)
+        a = a * m - b
+        b = b * m
+    liste.append(b // a)
+    return liste
+
+
+
+# Ne fonctionne pas bien !
+def test_fractionEgyptienne() :
+    try :
+        assert(fractionEgyptienne(1,2) == [2])
+        assert(fractionEgyptienne(1,3) == [3])
+        assert(fractionEgyptienne(1,4) == [4])
+        assert(fractionEgyptienne(1,5) == [5])
+        print("fractionEgyptienne : OK")
+    except :
+        print("fractionEgyptienne : ERREUR")
+
+test_fractionEgyptienne()
