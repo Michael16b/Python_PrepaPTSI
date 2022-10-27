@@ -219,9 +219,60 @@ def test_minRationnel() :
         print("minRationnel : ERREUR")
 
 
-test_minRationnel()
+#test_minRationnel()
     
+def pgcd(a,b) :
+    if (a == 0) :
+        return b
+    elif (b == 0) :
+        return a
+    else :
+        return pgcd(b, a % b)
 
+def test_pgcd() :
+    try :
+        assert(pgcd(0,0) == 0)
+        assert(pgcd(0,1) == 1)
+        assert(pgcd(1,0) == 1)
+        assert(pgcd(1,1) == 1)
+        assert(pgcd(18,2) == 2)
+        assert(pgcd(2,20) == 2)
+        assert(pgcd(20,2) == 2)
+        assert(pgcd(2,22) == 2)
+        assert(pgcd(2,28) == 2)
+        assert(pgcd(28,2) == 2)
+        assert(pgcd(2,30) == 2)
+        assert(pgcd(30,2) == 2)
+        assert(pgcd(2,32) == 2)
+        print("pgcd : OK")
+    except :
+        print("pgcd : ERREUR")
+        
+#test_pgcd()
+
+def soustractionRationnel(a,b,c,d) :
+    if (checkPQ(a,b) == False or checkPQ(c,d) == False) :
+        return None
+    if (b == d and a == c) :
+        return [0,1]
+    num1 = a*d 
+    num2 = c*b 
+    denoCommun = b*d 
+    numDiff = num1-num2
+    return [numDiff,denoCommun]
+
+# A Ameliorer - Cas de test a ajouter
+def test_soustractionRationnel() :
+    try :
+        assert(soustractionRationnel(1,2,1,2) == [0,1])
+        assert(soustractionRationnel(1,2,1,3) == [1,6])
+        assert(soustractionRationnel(1,2,1,4) == [2,8])
+        assert(soustractionRationnel(1,2,1,5) == [3,10])
+        print("soustractionRationnel : OK")
+    except :
+        print("soustractionRationnel : ERREUR")
+        
+test_soustractionRationnel()
 
 
 def fractionEgyptienne(p, q):
@@ -250,4 +301,4 @@ def test_fractionEgyptienne() :
     except :
         print("fractionEgyptienne : ERREUR")
 
-test_fractionEgyptienne()
+#test_fractionEgyptienne()
