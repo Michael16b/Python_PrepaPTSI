@@ -139,3 +139,56 @@ def test_sommefact() :
         print("somme2 : ERREUR")
         
 #test_sommefact()
+
+
+def max_pentepos(L) :
+    if (len(L) < 1) :
+        return L
+    pentePos = [L[0]]
+    for i in range(1,len(L)):
+        if (L[i] > pentePos[-1]) :
+            pentePos.append(L[i])
+    return pentePos
+
+def test_max_pentepos() :
+    try :
+        assert(max_pentepos([1,2,3,4,5]) == [1,2,3,4,5])
+        assert(max_pentepos([1,2,3,4,5,4,3,2,1]) == [1,2,3,4,5])
+        assert(max_pentepos([1,2,3,4,5,4,3,2,1,2,3,4,5]) == [1,2,3,4,5])
+        assert(max_pentepos([1,2,3,4,5,6,7,8,9,10,9,8,7,6,5,4,3,2,1]) == [1,2,3,4,5,6,7,8,9,10])
+        print("max_pentepos : OK")
+    except :
+        print("max_pentepos : ERREUR")
+        
+#test_max_pentepos()
+
+def maxpente(L) :
+    if (len(L) < 1) :
+        return L
+    pente = [L[0]]
+    pentePos = False # False si la pente est négative, True si la pente est positive
+    if (L[1] > L[0]) :
+        pentePos = True
+    else :
+        pentePos = False
+    for i in range(1,len(L)):
+        if (L[i] > pente[-1] and pentePos == True) :
+            pente.append(L[i])
+        elif(L[i] < pente[-1] and pentePos == False) :
+            pente.append(L[i])
+    return pente
+
+
+def test_maxpente() :
+    try :
+        assert(maxpente([1,2,3,4,5]) == [1,2,3,4,5])
+        assert(maxpente([5,4,3,2,1]) == [5,4,3,2,1])
+        assert(maxpente([1,2,3,4,5,4,3,2,1]) == [1,2,3,4,5])
+        assert(maxpente([-10,-9,-8,-7,-6,-5,-4,-3,-2,-1]) == [-10,-9,-8,-7,-6,-5,-4,-3,-2,-1])
+        print("maxpente : OK")
+    except :
+        print("maxpente : ERREUR")
+
+
+test_maxpente()
+        
